@@ -12,6 +12,7 @@
 #include "multi_arc.h"
 #include "id_multi_func.h"
 #include "preorder.h"
+#include <deque>
 #include <vector>
 
 #ifndef NDEBUG
@@ -335,7 +336,7 @@ namespace cch_order{
 			auto back_arc = compute_back_arc_permutation(tail, head);
 
 			std::vector<int> children(node_count, 1);
-			std::vector<pair<int, int>> order = {{0, -1}};
+			std::vector<std::pair<int, int>> order = {{0, -1}};
 
 			for (unsigned i = 0; i < order.size(); i++) {
 				const int cur = order[i].first;
@@ -360,7 +361,7 @@ namespace cch_order{
 			int best_score = -1;
 			for (int cur_arc = 0; cur_arc < arc_count; cur_arc++) {
 				int cur_score = std::min(children[head(cur_arc)], tail(cur_arc));
-				cur_score = min(cur_score, node_count - cur_score);
+				cur_score = std::min(cur_score, node_count - cur_score);
 				if (cur_score >= best_score) {
 					best_score = cur_score;
 					best_arc = cur_arc;

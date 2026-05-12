@@ -150,8 +150,8 @@ struct ArrayIDIDFunc : public ArrayIDFunc<int>{
 	}
 
 	template<class IDFunc>
-	ArrayIDIDFunc(const IDFunc&f, int image_count_)
-		: ArrayIDFunc<int>(f), image_count_(image_count_){}
+	ArrayIDIDFunc(const IDFunc&f, int image_count)
+		: ArrayIDFunc<int>(f), image_count_(image_count){}
 	
 
 	template<class IDIDFunc>

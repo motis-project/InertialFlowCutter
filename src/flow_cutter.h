@@ -13,8 +13,8 @@
 #include <random>
 #include <memory>
 
-#include <tbb/parallel_for.h>
-#include <tbb/enumerable_thread_specific.h>
+#include <oneapi/tbb/parallel_for.h>
+#include <oneapi/tbb/enumerable_thread_specific.h>
 
 #include "flow_cutter_config.h"
 

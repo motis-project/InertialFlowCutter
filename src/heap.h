@@ -79,7 +79,7 @@ public:
 		check_order_invariants();
 	}
 
-	void reset(int new_id_count = 0, key_order_type new_order = key_order_type()){
+	void reset(int new_id_count = 0, key_order_type = key_order_type()){
 		heap.resize(new_id_count);
 		id_pos.resize(new_id_count);
 		contained_flags.resize(new_id_count);
