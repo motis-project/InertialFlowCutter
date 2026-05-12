@@ -389,7 +389,7 @@ find_path(TBB_INCLUDE_DIR
 find_tbb_library_verifying_release_debug_locations(TBB_LIBRARY)
 make_library_set(TBB_LIBRARY)
 
-findpkg_finish(TBB tbb)
+#findpkg_finish(TBB tbb)
 
 #if we haven't found TBB no point on going any further
 if (NOT TBB_FOUND)
