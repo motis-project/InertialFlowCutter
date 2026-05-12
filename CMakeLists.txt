@@ -81,5 +81,5 @@ if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 
 add_library(inertialflowcutter ${SOURCE_FILES})
-target_include_directories(inertialflowcutter PUBLIC include)
+target_include_directories(inertialflowcutter SYSTEM INTERFACE include)
 target_link_libraries(inertialflowcutter TBB::tbb)
