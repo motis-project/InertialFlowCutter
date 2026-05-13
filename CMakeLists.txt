@@ -45,10 +45,10 @@ if (USE_KAHIP)
 endif()
 
 set (SOURCE_FILES
-    src/console.cpp
+#    src/console.cpp
     src/permutation.cpp
-    src/list_graph.cpp
-    src/file_utility.cpp
+#    src/list_graph.cpp
+#    src/file_utility.cpp
     src/geo_pos.cpp)
 
 #add_custom_target (
@@ -60,9 +60,9 @@ set (SOURCE_FILES
 
 #add_custom_target (routingkit DEPENDS ${CMAKE_SOURCE_DIR}/extern/RoutingKit/lib/libroutingkit.a )
 
-add_executable (console ${SOURCE_FILES})
-add_executable (customize customize.cpp)
-add_executable (query query.cpp)
+#add_executable (console ${SOURCE_FILES})
+#add_executable (customize customize.cpp)
+#add_executable (query query.cpp)
 
 #target_include_directories (customize PRIVATE extern/RoutingKit/include)
 #target_link_libraries (customize ${CMAKE_SOURCE_DIR}/extern/RoutingKit/lib/libroutingkit.a OpenMP::OpenMP_CXX)
@@ -72,16 +72,16 @@ add_executable (query query.cpp)
 #target_link_libraries (query ${CMAKE_SOURCE_DIR}/extern/RoutingKit/lib/libroutingkit.a OpenMP::OpenMP_CXX)
 #add_dependencies (query routingkit)
 
-if (USE_KAHIP)
-    target_compile_definitions(console PUBLIC USE_KAHIP)
-    target_link_libraries (console PUBLIC interface_static)
-endif()
+#if (USE_KAHIP)
+#    target_compile_definitions(console PUBLIC USE_KAHIP)
+#    target_link_libraries (console PUBLIC interface_static)
+#endif()
 #target_link_libraries(console PUBLIC ${READLINE})
 #target_link_libraries(console PUBLIC ${TBB_LIBRARIES})
 
-if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(console PUBLIC tinfo)
-endif()
+#if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#    target_link_libraries(console PUBLIC tinfo)
+#endif()
 
 add_library(inertialflowcutter ${SOURCE_FILES})
 target_include_directories(inertialflowcutter SYSTEM INTERFACE include)
