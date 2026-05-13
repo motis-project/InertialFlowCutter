@@ -17,7 +17,7 @@
 using namespace std;
 
 template <class FuncA, class FuncB>
-void run_inertial_flow_cutter(int const node_count,
+void run_inertial_flow_cutter(int thread_count, int const node_count,
                               std::vector<unsigned> const& v_tail,
                               std::vector<unsigned> const& v_head,
                               FuncA get_lonlat,
@@ -33,7 +33,7 @@ void run_inertial_flow_cutter(int const node_count,
   ArrayIDIDFunc arc_original_position;
 
   flow_cutter::Config flow_cutter_config;
-  flow_cutter_config.thread_count = 4;
+  flow_cutter_config.thread_count = thread_count;
 
   auto arc_count = static_cast<int>(v_tail.size());
 
