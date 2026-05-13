@@ -7,7 +7,7 @@
 #include "union_find.h"
 #include "tiny_id_func.h"
 #include "min_max.h"
-#include "timer.h"
+//#include "timer.h"
 
 #include <tbb/spin_mutex.h>
 
@@ -371,15 +371,15 @@ namespace separator{
 			const int node_count = tail.image_count();
 			const int arc_count = tail.preimage_count();
 
-			long long running_time = -get_micro_time();
+			//long long running_time = -get_micro_time();
 			auto sep = compute_separator(tail, head, input_node_id, arc_weight);
-			running_time += get_micro_time();
+			//running_time += get_micro_time();
 
-			long long reporting_running_time = -get_micro_time();
+			//long long reporting_running_time = -get_micro_time();
 			auto large_node_count = determine_largest_part_size(tail, head, sep);
-			reporting_running_time += get_micro_time();
+			//reporting_running_time += get_micro_time();
 
-			out << node_count << ',' << arc_count << ',' << sep.size() << ',' << large_node_count << ',' << running_time << ',' << reporting_running_time << '\n';
+			out << node_count << ',' << arc_count << ',' << sep.size() << ',' << large_node_count << /*',' << running_time << ',' << reporting_running_time << */ '\n';
 			return sep;
 		}
 	

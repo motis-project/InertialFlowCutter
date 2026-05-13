@@ -19,7 +19,7 @@
 
 #include "flow_cutter_config.h"
 #include "permutation.h"
-#include "timer.h"
+//#include "timer.h"
 #include "geo_pos.h"
 #include <iostream>
 
@@ -1258,14 +1258,14 @@ namespace flow_cutter_accelerated{
 					return std::make_tuple( tar_dist - src_dist);//, /*tar_geo - src_geo, */-1 * std::min(tar_dist, src_dist));//-1.0 * std::min(tar_geo, src_geo) );
 				};
 				auto comp = [&](int l, int r) { return score(l) > score(r); };
-				auto time = - get_micro_time();
+				//auto time = - get_micro_time();
 				int max_bulk = std::max(static_cast<int>(config.bulk_assimilation_order_threshold * graph.node_count()), 1);
 				std::nth_element(node_order.begin(), node_order.begin() + max_bulk, node_order.end(), comp);
 				std::sort(node_order.begin(), node_order.begin() + max_bulk + 1, comp);
 				std::nth_element(node_order.begin() + max_bulk + 1, node_order.end() - (max_bulk + 1), node_order.end(), comp);
 				std::sort(node_order.end() - (max_bulk + 1), node_order.end(), comp);
-				time += get_micro_time();
-				std::cout << "sort took " << time/1000 << " ms" << std::endl;
+				//time += get_micro_time();
+				//std::cout << "sort took " << time/1000 << " ms" << std::endl;
 				{
 #ifndef NDEBUG
 					std::sort(node_order.begin(), node_order.end(), comp);
