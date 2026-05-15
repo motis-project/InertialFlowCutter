@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef FLOW_CUTTER_H
 #define FLOW_CUTTER_H
 

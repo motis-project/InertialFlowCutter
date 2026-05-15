@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef NODE_FLOW_CUTTER_H
 #define NODE_FLOW_CUTTER_H
 
@@ -113,6 +115,7 @@ namespace flow_cutter{
 			}
 		};
 
+		inline
 		Capacity capacity(int original_node_count, int original_arc_count){
 			return {original_node_count, original_arc_count};
 		}
@@ -361,6 +364,7 @@ namespace flow_cutter{
 			return p;
 		}
 
+		inline
 		std::vector<flow_cutter_accelerated::TerminalPair> expand_source_target_pair_list(std::vector<flow_cutter_accelerated::TerminalPair> p) {
 			for (auto& x : p) {
 				for (int& u : x.source_list) {
@@ -373,6 +377,7 @@ namespace flow_cutter{
 			return p;
 		}
 
+		inline
 		flow_cutter_accelerated::MultiCutter::TerminalInformation expand_source_target_pair_list(flow_cutter_accelerated::MultiCutter::TerminalInformation t) {
 		    auto expand_order = [&](const std::vector<int>& order) {
 		        std::vector<int> new_order(expanded_node_count(order.size()));

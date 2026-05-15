@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef FLOW_CUTTER_WITH_CLUSTERING_H
 #define FLOW_CUTTER_WITH_CLUSTERING_H
 
@@ -105,6 +107,7 @@ namespace flow_cutter_accelerated{
 		};
 	}
 
+	inline
 	int select_random_node(const std::vector<int>& node_list, int seed) {
 		std::mt19937 rng(seed);
 		std::uniform_int_distribution<int> dist(0, node_list.size()-1);

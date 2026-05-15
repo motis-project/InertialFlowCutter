@@ -1071,7 +1071,8 @@ namespace cch_order{
 		ArrayIDFunc<int> arc_weight, 
 		const ComputeSeparator&compute_separator
 	){
-		return compute_cch_graph_order(std::move(tail), std::move(head), identity_permutation(tail.image_count()), std::move(arc_weight), compute_separator);
+		auto const arc_count = tail.image_count();
+		return compute_cch_graph_order(std::move(tail), std::move(head), identity_permutation(arc_count), std::move(arc_weight), compute_separator);
 	}
 
 	class ComputeConstantSeparator{

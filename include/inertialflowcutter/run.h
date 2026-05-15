@@ -1,3 +1,5 @@
+#pragma once
+
 #include <oneapi/tbb/global_control.h>
 #include <random>
 #include <vector>
@@ -16,8 +18,11 @@
 
 using namespace std;
 
+namespace ifc {
+
 template <class FuncA, class FuncB>
-void run_inertial_flow_cutter(int thread_count, int const node_count,
+void run_inertial_flow_cutter(int thread_count,
+                              int const node_count,
                               std::vector<unsigned> const& v_tail,
                               std::vector<unsigned> const& v_head,
                               FuncA get_lonlat,
@@ -211,3 +216,5 @@ void run_inertial_flow_cutter(int thread_count, int const node_count,
     apply_level(node_original_position[i], i);
   }
 }
+
+}  // namespace ifc
